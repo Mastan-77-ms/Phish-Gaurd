@@ -1,0 +1,117 @@
+.navigation {
+  background: var(--bg-secondary, #1a1a1a);
+  border-bottom: 2px solid var(--primary-color, #00d4ff);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 212, 255, 0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  padding: 0 2rem;
+  list-style: none;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  color: var(--text-secondary, #b0b0b0);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--primary-color, #00d4ff);
+  background: rgba(0, 212, 255, 0.05);
+}
+
+.nav-link.active {
+  color: var(--primary-color, #00d4ff);
+  border-bottom-color: var(--primary-color, #00d4ff);
+  background: rgba(0, 212, 255, 0.1);
+}
+
+.nav-icon {
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+}
+
+.nav-text {
+  font-size: 1rem;
+}
+
+/* Light theme */
+.light-theme .navigation {
+  background: var(--bg-secondary-light, #f5f5f5);
+  border-bottom-color: var(--primary-color, #00d4ff);
+}
+
+.light-theme .nav-link {
+  color: var(--text-secondary-light, #666);
+}
+
+.light-theme .nav-link:hover {
+  color: var(--primary-color, #00d4ff);
+  background: rgba(0, 212, 255, 0.08);
+}
+
+.light-theme .nav-link.active {
+  color: var(--primary-color, #00d4ff);
+  background: rgba(0, 212, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-container {
+    gap: 0.5rem;
+    padding: 0 1rem;
+  }
+
+  .nav-link {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .nav-text {
+    display: none;
+  }
+
+  .nav-link:hover .nav-text,
+  .nav-link.active .nav-text {
+    display: inline;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    gap: 0;
+  }
+
+  .nav-link {
+    flex: 1;
+    justify-content: center;
+    padding: 0.8rem 0.5rem;
+    border-bottom: none;
+    border-top: 3px solid transparent;
+  }
+
+  .nav-link.active {
+    border-top-color: var(--primary-color, #00d4ff);
+    border-bottom: none;
+  }
+
+  .nav-text {
+    display: none;
+  }
+}

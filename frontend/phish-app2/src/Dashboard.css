@@ -1,0 +1,724 @@
+/* Dashboard Container */
+.dashboard-container {
+  width: 100%;
+  margin: 0;
+  padding: 2rem;
+  background: linear-gradient(180deg, #1a2332 0%, #0f1419 100%);
+  border-radius: 0;
+  box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.5);
+  animation: slideInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-top: 2px solid #0d8fa3;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dashboard-title {
+  text-align: center;
+  color: #4a9eff;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  animation: fadeInDown 0.8s ease-out;
+  letter-spacing: 0.3px;
+  text-shadow: 0 0 15px rgba(74, 158, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.dashboard-title:hover {
+  text-shadow: 0 0 25px rgba(74, 158, 255, 0.4);
+  transform: scale(1.02);
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Recent Scan Result */
+.recent-result {
+  background: var(--bg-secondary, #1a1a1a);
+  border: 2px solid var(--primary-color, #00d4ff);
+  border-radius: 15px;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  animation: slideInUp 0.6s ease-out;
+}
+
+.recent-result.phishing {
+  border-color: #ff0000;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+}
+
+.recent-result.suspicious {
+  border-color: #ff9800;
+  box-shadow: 0 0 20px rgba(255, 152, 0, 0.2);
+}
+
+.recent-result.safe {
+  border-color: #4caf50;
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.2);
+}
+
+.recent-result .result-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.recent-result .risk-circle {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: box-shadow 0.3s ease;
+}
+
+.recent-result .risk-circle.high-risk-glow {
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.6), 0 0 60px rgba(255, 0, 0, 0.3);
+}
+
+.recent-result .risk-circle.medium-risk-glow {
+  box-shadow: 0 0 30px rgba(255, 152, 0, 0.6), 0 0 60px rgba(255, 152, 0, 0.3);
+}
+
+.recent-result .risk-circle.low-risk-glow {
+  box-shadow: 0 0 30px rgba(76, 175, 80, 0.6), 0 0 60px rgba(76, 175, 80, 0.3);
+}
+
+.recent-result .progress-ring-svg {
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+}
+
+.recent-result .progress-ring-bg {
+  fill: none;
+  stroke: var(--bg-tertiary, #242424);
+  stroke-width: 8;
+}
+
+.recent-result .progress-ring {
+  fill: none;
+  stroke-width: 8;
+  stroke-dasharray: 283;
+  stroke-dashoffset: calc(283 - 283 * var(--percentage) / 100);
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.recent-result.phishing .progress-ring {
+  stroke: #ff0000;
+}
+
+.recent-result.suspicious .progress-ring {
+  stroke: #ff9800;
+}
+
+.recent-result.safe .progress-ring {
+  stroke: #4caf50;
+}
+
+.recent-result .risk-score {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--text-primary, #ffffff);
+  margin-top: -2rem;
+}
+
+.recent-result .risk-label {
+  color: var(--text-secondary, #b0b0b0);
+  font-size: 0.9rem;
+}
+
+.recent-result .result-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.recent-result .status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.recent-result .status-indicator.threat {
+  background: rgba(255, 0, 0, 0.1);
+  color: #ff0000;
+}
+
+.recent-result .status-indicator.caution {
+  background: rgba(255, 152, 0, 0.1);
+  color: #ff9800;
+}
+
+.recent-result .status-indicator.safe {
+  background: rgba(76, 175, 80, 0.1);
+  color: #4caf50;
+}
+
+.recent-result .result-url {
+  color: var(--text-secondary, #b0b0b0);
+  word-break: break-all;
+  margin: 0.5rem 0;
+}
+
+.recent-result .status-badge {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  width: fit-content;
+}
+
+.recent-result .status-badge.malicious {
+  background: rgba(255, 0, 0, 0.2);
+  color: #ff0000;
+}
+
+.recent-result .status-badge.suspicious {
+  background: rgba(255, 152, 0, 0.2);
+  color: #ff9800;
+}
+
+.recent-result .status-badge.safe {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+}
+
+.close-result-btn {
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 107, 107, 0.2);
+  color: #ff6b6b;
+  border: 1px solid #ff6b6b;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.close-result-btn:hover {
+  background: rgba(255, 107, 107, 0.3);
+  transform: translateY(-2px);
+}
+
+.history-section {
+  background: var(--bg-secondary, #1a2332);
+  border: 1px solid rgba(74, 158, 255, 0.3);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.history-section h3 {
+  color: #4a9eff;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.no-activity {
+  text-align: center;
+  color: var(--text-secondary, #b0b0b0);
+  padding: 1.5rem;
+  font-style: italic;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-left: 3px solid var(--primary-color, #00d4ff);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.activity-item.phishing {
+  border-left-color: #ff0000;
+  background: rgba(255, 0, 0, 0.05);
+}
+
+.activity-item.suspicious {
+  border-left-color: #ff9800;
+  background: rgba(255, 152, 0, 0.05);
+}
+
+.activity-item.safe {
+  border-left-color: #4caf50;
+  background: rgba(76, 175, 80, 0.05);
+}
+
+.activity-item:hover {
+  transform: translateX(5px);
+}
+
+.activity-icon {
+  font-size: 1.3rem;
+  min-width: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.activity-details {
+  flex: 1;
+}
+
+.activity-url {
+  color: var(--text-primary, #ffffff);
+  margin: 0 0 0.25rem 0;
+  word-break: break-all;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.activity-time {
+  color: var(--text-secondary, #b0b0b0);
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.activity-badge {
+  display: flex;
+  align-items: center;
+}
+
+.status-badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.status-badge.phishing {
+  background: rgba(255, 0, 0, 0.2);
+  color: #ff0000;
+}
+
+.status-badge.suspicious {
+  background: rgba(255, 152, 0, 0.2);
+  color: #ff9800;
+}
+
+.status-badge.safe {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Stat Card Base Styles */
+.stat-card {
+  padding: 1.5rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.15s; }
+.stat-card:nth-child(3) { animation-delay: 0.2s; }
+.stat-card:nth-child(4) { animation-delay: 0.25s; }
+
+.stat-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(74, 158, 255, 0.4);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+/* Icon Styles */
+.stat-icon-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
+/* Content Styles */
+.stat-content {
+  flex: 1;
+}
+
+.stat-content h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.stat-number {
+  margin: 0.25rem 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  animation: countUp 1s ease-out;
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.stat-label {
+  margin: 0;
+  font-size: 0.7rem;
+  opacity: 0.85;
+}
+
+/* Individual Card Colors */
+.stat-card.total-scans {
+  background: linear-gradient(135deg, #0d8fa3 0%, #1a5f7a 100%);
+  color: white;
+  animation-delay: 0.1s;
+}
+
+.stat-card.safe-links {
+  background: linear-gradient(135deg, #1b7d5e 0%, #2da877 100%);
+  color: white;
+  animation-delay: 0.2s;
+}
+
+.stat-card.phishing-links {
+  background: linear-gradient(135deg, #ff4444 0%, #cc3333 100%);
+  color: white;
+  animation-delay: 0.3s;
+}
+
+.stat-card.suspicious-links {
+  background: linear-gradient(135deg, #ff9800 0%, #e68900 100%);
+  color: white;
+  animation-delay: 0.4s;
+}
+
+.stat-card.phishing-ratio {
+  background: linear-gradient(135deg, #ff6b00 0%, #e65c00 100%);
+  color: white;
+  animation-delay: 0.4s;
+}
+
+/* Progress Section */
+.progress-section {
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.8s ease-out 0.5s both;
+  display: block;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.progress-section h3 {
+  color: #4a9eff;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.progress-container {
+  display: flex;
+  gap: 1rem;
+  min-height: 50px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.progress-section h3 {
+  color: #4a9eff;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.progress-bar-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 600px;
+}
+
+.progress-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #e0e0e0;
+}
+
+.progress-bar {
+  height: 40px;
+  background: #1a2332;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+  display: flex;
+}
+
+.progress-safe {
+  height: 100%;
+  background: linear-gradient(90deg, #1b7d5e 0%, #2da877 100%);
+  border-radius: 4px;
+  transition: width 1s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-suspicious {
+  height: 100%;
+  background: linear-gradient(90deg, #ff9800 0%, #e68900 100%);
+  border-radius: 4px;
+  transition: width 1s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-phishing {
+  height: 100%;
+  background: linear-gradient(90deg, #ff4444 0%, #cc3333 100%);
+  border-radius: 4px;
+  transition: width 1s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-label {
+  font-size: 1rem;
+  color: white;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1s ease-out;
+  background: linear-gradient(90deg, #4a9eff, #0d8fa3);
+}
+
+/* Summary Cards */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.summary-card {
+  padding: 1.5rem;
+  background: #1a2332;
+  border-left: 3px solid #0d8fa3;
+  border-radius: 4px;
+  text-align: left;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.8s ease-out 0.6s both;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.summary-card h3 {
+  color: #4a9eff;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.summary-card p {
+  color: #e0e0e0;
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.summary-card strong {
+  color: #4a9eff;
+  font-weight: 700;
+}
+
+.safe-text {
+  color: #2da877;
+  font-weight: 600;
+}
+
+.suspicious-text {
+  color: #ff9800;
+  font-weight: 600;
+}
+
+.phishing-text {
+  color: #ff4444;
+  font-weight: 600;
+}
+
+.summary-card:hover {
+  background: #232d3d;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(74, 158, 255, 0.2);
+}
+
+.summary-card label {
+  display: block;
+  font-size: 0.8rem;
+  color: #8a8a8a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.summary-card .value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4a9eff;
+}
+
+/* Loading State */
+.loading-indicator {
+  text-align: center;
+  padding: 2rem;
+  color: #8a8a8a;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 3px solid #1a2332;
+  border-top-color: #4a9eff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .progress-bar-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .summary-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+}

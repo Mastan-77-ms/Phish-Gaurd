@@ -1,0 +1,65 @@
+/* Theme Variables - Dark and Light Mode Support */
+
+:root {
+  /* Dark Theme - Default */
+  --bg-primary: #001a4d;
+  --bg-secondary: #1a5c3a;
+  --bg-tertiary: rgba(26, 35, 50, 0.6);
+  --bg-card: rgba(26, 35, 50, 0.6);
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --text-muted: #606080;
+  --border-color: rgba(13, 143, 163, 0.3);
+  --border-light: rgba(74, 158, 255, 0.2);
+  
+  /* Accent Colors - Neon Theme */
+  --cyan: #044b59;
+  --cyan-glow: rgba(0, 212, 255, 0.5);
+  --green: #00ff88;
+  --green-glow: rgba(0, 255, 136, 0.5);
+  --pink: #ff3366;
+  --pink-glow: rgba(255, 51, 102, 0.5);
+  
+  /* Specific Element Colors */
+  --button-bg: linear-gradient(135deg, #08607d 0%, #0077aa 100%);
+  --button-hover: linear-gradient(135deg, #00aadd 0%, #0088bb 100%);
+  --header-bg: linear-gradient(180deg, #1a2332 0%, #0f1419 50%);
+  --input-bg: rgba(26, 35, 50, 0.6);
+  --input-bg-dark: rgba(26, 35, 50, 0.9);
+  --input-bg-disabled: rgba(15, 20, 25, 0.6);
+}
+
+:root.light-theme {
+  /* Light Theme with Light Green Background */
+  --bg-primary: #e8f5e9;
+  --bg-secondary: #f1f8f6;
+  --bg-tertiary: rgba(232, 245, 233, 0.95);
+  --bg-card: rgba(240, 248, 245, 0.95);
+  --text-primary: #1b5e20;
+  --text-secondary: #2e7d32;
+  --text-muted: #388e3c;
+  --border-color: rgba(56, 142, 60, 0.25);
+  --border-light: rgba(76, 175, 80, 0.15);
+  
+  /* Accent Colors - Vibrant Professional with Green Theme */
+  --cyan: #00897b;
+  --cyan-glow: rgba(0, 137, 123, 0.25);
+  --green: #2e7d32;
+  --green-glow: rgba(46, 125, 50, 0.25);
+  --pink: #c62828;
+  --pink-glow: rgba(198, 40, 40, 0.25);
+  
+  /* Specific Element Colors */
+  --button-bg: linear-gradient(135deg, #17531a 0%, #1b5e20 100%);
+  --button-hover: linear-gradient(135deg, #388e3c 0%, #2e7d32 100%);
+  --header-bg: linear-gradient(180deg, #f1f8f6 0%, #e8f5e9 50%);
+  --input-bg: rgba(240, 248, 245, 0.9);
+  --input-bg-dark: rgba(232, 245, 233, 0.95);
+  --input-bg-disabled: rgba(200, 230, 201, 0.8);
+}
+
+* {
+  transition-property: background-color, color, border-color, box-shadow, text-shadow;
+  transition-duration: 0.4s;
+  transition-timing-function: ease;
+}

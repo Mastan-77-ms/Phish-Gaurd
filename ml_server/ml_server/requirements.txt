@@ -1,0 +1,18 @@
+fastapi
+uvicorn
+pandas
+scikit-learn
+joblib
+requests
+numpy
+tensorflow
+keras
+
+{result && (
+  <>
+    <div className={`result ...`}>
+      {/* result content */}
+    </div>
+    <FeatureAnalysis features={result.features} />
+  </>
+)}
